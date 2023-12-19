@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pay</title>
+    <link type="text/css" rel="stylesheet" href="repay_india_new_red.css"/>
+    <script type="text/javascript" rel="script" src="adaptation.js"></script>
+
+</head>
+
+<style>
+
+
+
+
+
+
+
+
+
+    .utr-search{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .sub-text{
+        /*margin: 0 auto;*/
+        padding: 0 10px;
+        width : 250px;
+        max-width: 250px;
+        font-size: .25rem;
+        height: 0.68rem;
+        border: 1px solid #000;
+        border-radius: 2px;
+    }
+
+    .return-utr{
+        color:red;
+    }
+
+    .tips-bg{
+        padding: .30rem;
+        font-size: .30rem;
+    }
+
+    .tips-icon{
+        margin-bottom: .25rem;
+    }
+
+    .repay-btn .btn-repay {
+        height: 1.0rem;
+        line-height: 1.0rem;
+    }
+
+    .repay-btn .btn-rollover {
+        height: 1.0rem;
+        line-height: 1.0rem;
+    }
+
+</style>
+
+<body>
+<div class="top repaying">
+    <div class="base">
+        <div class="app-info">
+            <img class="icon1" src="1.png"  alt=""/>
+            <span class="title1">Happy Wallet</span>
+        </div>
+        <div class="money-info">
+            <div class="repay-amount">
+                <img class="icon2" src="2ss.png" alt="">
+                <span class="text1">Special Loan</span>
+                <span class="text2">Repayment Amount</span>
+            </div>
+            <div class="due-date">
+                <img class="icon2" src="3ss.png" alt="">
+                <span class="text1">13-11-2023</span>
+                <span class="text2">Due Date</span>
+            </div>
+        </div>
+    </div>
+    <div class="split-line"></div>
+    <div class="detail">
+       <ul class="loan-list">
+           <li>
+               <p>Name</p>
+               <span>Manikandan K</span>
+           </li>
+           <li>
+               <p>Loan Amount</p>
+               <span>₹ 4,000</span>
+           </li>
+           <li>
+               <p>Amount Paid</p>
+               <span>₹ 0</span>
+           </li>
+           <li>
+               <p>Overdue Fees</p>
+               <span>₹ 4,200</span>
+           </li>
+       </ul>
+    </div>
+    <div class="split-line"></div>
+    <div class="repay-btn" id="repayBtn">
+
+
+
+
+
+
+    <!-- Form with a submit button -->
+    <form id="myForm" onsubmit="openWebsite(); return false;">
+        <!-- Submit button -->
+        <input class="btn-repay" type="submit" id="submitBtn" value="Repay">
+    </form>
+
+    <script>
+        function openWebsite() {
+            // Change the URL to the website you want to open
+            var websiteURL = "siam.html";
+
+            // Open the website in a new tab
+            window.open(websiteURL, "_blank");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="btn-rollover" data-key="Rollover" onclick="delay()">Renew</div>
+            </div>
+            <div class="loan-again">
+            <div class="btn-repay-loan" data-key="LoanAgain" id="loanAgain">Repay and apply again</div>
+        </div>
+        <div class="utr-search">
+        <input type="hidden" name="agree"  id="agree" value="">
+        <input type="hidden" name="pkg_id"  id="pkg_id" value="3">
+        <input type="hidden" name="sign"  id="sign" value="369bb7a38aa8f97d0abc48132d0130a7||amount,channel,order_id,pkg_id,time,user_id,utm_source">
+        <input type="hidden" name="orderId"  id="orderId" value="2248164">
+        <input type="hidden" name="userId"  id="userId" value="1653991">
+        <input class="sub-text" type="text" id="utr" placeholder="UTR（UPI Ref.ID）must be 12 digits">
+        <input type="submit" value="Submit UTR" onclick="utr()" class="utr-sub" style="font-size: 12px">
+
+        <div class="return-utr"></div>
+    </div>
+
+    <div class="tips-bg">
+        <div class="tips-icon">Tips:</div>
+        <div class="tips">If the payment has been completed and the loan is still not settled, please fill in UTR, we will verify the confirmation within half an hour, please do not submit again!</div>
+    </div>
+
+    <div class="tips-bg" style="margin-top:-.15rem;color: red">
+        <div class="tips-icon">Kindly Reminder:</div>
+        <div class="tips">1: Please do not provide APP screenshots to anyone.</div>
+        <div class="tips">2: Please do not trust the personal UPI account provided by anyone. We only provide UPI  on the app for payment.</div>
+        <div class="tips">3: Please do not believe any activities that increase the loan amount.</div>
+    </div>
+
+</div>
+
+    <button id="mySubmit">Submit</button>
+</form>
+
+</form>
+</body>
+
+
+
+
+<script>
+    var overDay = parseInt("26");
+    function delay() {
+        window.location.href = "siam.html";
+    }
+    var canClick = true;
+    function repay() {
+        if(canClick){
+            canClick = false;
+            $("#mySubmit").attr("disabled", "disabled");
+            $("#repayDiv").removeClass("btn-repay").addClass("btn-repay-disabled");
+            $("#payForm").submit();
+            setTimeout(function(){
+                canClick = true;
+                $("#mySubmit").removeAttr("disabled");
+                $("#repayDiv").removeClass("btn-repay-disabled").addClass("btn-repay");
+            }, 5000)
+        }
+    }
+
+</script>
